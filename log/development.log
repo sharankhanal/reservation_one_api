@@ -1,0 +1,1215 @@
+Started GET "/" for 127.0.0.1 at 2023-02-26 09:00:38 +1100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/sharankhanal/.rbenv/versions/3.2.1/lib/ruby/gems/3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sharankhanal/.rbenv/versions/3.2.1/lib/ruby/gems/3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.2ms | Allocations: 604)
+Completed 200 OK in 14ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 4906)
+
+
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "guests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "start_date" date, "end_date" date, "nights" integer, "guests" integer, "adults" integer, "children" integer, "infants" integer, "status" varchar, "currency" varchar, "payout_price" decimal(10,2), "security_price" decimal(10,2), "total_price" decimal(10,2), "guests_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_guests_id" ON "reservations" ("guests_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-25 22:37:15.093114"], ["updated_at", "2023-02-25 22:37:15.093114"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "reservations"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "guests"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "guests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" varchar, "email" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar NOT NULL, "start_date" date, "end_date" date, "nights" integer, "guests" integer, "adults" integer, "children" integer, "infants" integer, "status" varchar, "currency" varchar, "payout_price" decimal(10,2), "security_price" decimal(10,2), "total_price" decimal(10,2), "guests_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_guests_id" ON "reservations" ("guests_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGuest Load (0.3ms)[0m  [1m[34mSELECT "guests".* FROM "guests" ORDER BY "guests"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+[ERROR]:[ReservationService]: this works
+[ERROR]:[ReservationService]: this works
+Started POST "/reserve" for ::1 at 2023-02-26 23:39:57 +1100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 2738)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/services/base_service.rb:7:in `initialize'
+app/services/reservation_manager.rb:9:in `initialize'
+app/controllers/reservations_controller.rb:8:in `new'
+app/controllers/reservations_controller.rb:8:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-26 23:41:05 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 842)
+
+
+  
+NameError (undefined local variable or method `json_scheme_paths' for #<ReservationPayloadParser:0x000000010ca92588 @error={}, @payload=nil>):
+  
+app/services/reservation_payload_parser.rb:25:in `do_call'
+app/services/reservation_payload_parser.rb:17:in `call'
+app/services/reservation_manager.rb:32:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-26 23:41:26 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms | Allocations: 4567)
+
+
+  
+NoMethodError (undefined method `status' for #<ReservationManager:0x000000010c23fcf0 @error={:message=>"No valid schema found to parse the payload"}, @params=#<ActionController::Parameters {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "controller"=>"reservations", "action"=>"create_or_update", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}} permitted: false>>):
+  
+app/controllers/reservations_controller.rb:15:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-26 23:41:51 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.7ms | Allocations: 2392)
+
+
+  
+NameError (uninitialized constant ReservationsController::OK):
+  
+app/controllers/reservations_controller.rb:15:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-26 23:42:10 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.4ms | Allocations: 2467)
+
+
+  
+ArgumentError (Unrecognized status code :OK):
+  
+app/controllers/reservations_controller.rb:15:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-26 23:44:44 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2464)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:45:15 +1100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 6739)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:45:49 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.4ms | Allocations: 670)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x000000010a49ddf0>):
+  
+app/services/reservation_payload_parser.rb:25:in `do_call'
+app/services/reservation_payload_parser.rb:17:in `call'
+app/services/reservation_manager.rb:32:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-26 23:47:00 +1100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 11054ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 40242)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:47:54 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 11187ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 28391)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:48:19 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 58989ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 116672)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:50:51 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 849)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/services/base_service.rb:7:in `initialize'
+app/services/reservation_payload_parser.rb:11:in `initialize'
+app/services/reservation_manager.rb:31:in `new'
+app/services/reservation_manager.rb:31:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-26 23:51:54 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 110434ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 200587)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:53:53 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 2371)
+
+
+  
+NameError (undefined local variable or method `parser' for #<ReservationPayloadParser:0x000000011067f2d0 @error={:message=>"No parser found to parse the payload version v1"}, @payload=#<ActionController::Parameters {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "controller"=>"reservations", "action"=>"create_or_update", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}} permitted: false>, @parser=nil>):
+  
+app/services/reservation_payload_parser.rb:56:in `do_call'
+app/services/reservation_payload_parser.rb:17:in `call'
+app/services/reservation_manager.rb:32:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-26 23:54:23 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 2223)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:54:59 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 47357ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 66286)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:56:00 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 15245ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 22572)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:56:57 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 8600ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 21303)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:57:13 +1100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 200 OK in 40061ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 58459)
+
+
+Started POST "/reserve" for ::1 at 2023-02-26 23:58:31 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 6876ms (ActiveRecord: 0.3ms | Allocations: 16950)
+
+
+  
+NoMethodError (undefined method `successful?' for Reservations::ParserV1:Class):
+  
+app/services/reservation_payload_parser.rb:62:in `do_call'
+app/services/reservation_payload_parser.rb:18:in `call'
+app/services/reservation_manager.rb:32:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:01:15 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 3327ms (ActiveRecord: 0.3ms | Allocations: 12828)
+
+
+  
+NoMethodError (undefined method `dig' for nil:NilClass):
+  
+app/services/reservation_manager.rb:45:in `save_reservation'
+app/services/reservation_manager.rb:39:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:01:34 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 2333)
+
+
+  
+NoMethodError (undefined method `dig' for nil:NilClass):
+  
+app/services/reservation_manager.rb:45:in `save_reservation'
+app/services/reservation_manager.rb:39:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:01:48 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 56239ms (ActiveRecord: 0.5ms | Allocations: 80379)
+
+
+  
+NoMethodError (undefined method `dig' for nil:NilClass):
+  
+app/services/reservation_manager.rb:46:in `save_reservation'
+app/services/reservation_manager.rb:39:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:02:49 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 82363ms (ActiveRecord: 0.0ms | Allocations: 116244)
+
+
+  
+NoMethodError (undefined method `dig' for nil:NilClass):
+  
+app/services/reservation_manager.rb:46:in `save_reservation'
+app/services/reservation_manager.rb:39:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:04:17 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+Completed 500 Internal Server Error in 107869ms (ActiveRecord: 0.3ms | Allocations: 160948)
+
+
+  
+NoMethodError (undefined method `dig' for nil:NilClass):
+  
+app/services/reservation_manager.rb:48:in `save_reservation'
+app/services/reservation_manager.rb:41:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:06:21 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Create (0.9ms)[0m  [1m[32mINSERT INTO "reservations" ("code", "start_date", "end_date", "nights", "guests", "adults", "children", "infants", "status", "currency", "payout_price", "security_price", "total_price", "guests_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "YYY12345678"], ["start_date", nil], ["end_date", nil], ["nights", nil], ["guests", nil], ["adults", nil], ["children", nil], ["infants", nil], ["status", nil], ["currency", nil], ["payout_price", nil], ["security_price", nil], ["total_price", nil], ["guests_id", nil], ["created_at", "2023-02-26 13:06:21.324572"], ["updated_at", "2023-02-26 13:06:21.324572"]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mGuest Create (0.2ms)[0m  [1m[32mINSERT INTO "guests" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", nil], ["last_name", nil], ["phone", nil], ["email", "wayne_woodbridge@bnb.com"], ["created_at", "2023-02-26 13:06:21.332747"], ["updated_at", "2023-02-26 13:06:21.332747"]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 4.5ms | Allocations: 21903)
+
+
+  
+NoMethodError (undefined method `guest=' for #<Reservation id: 1, code: "YYY12345678", start_date: "2021-04-14", end_date: "2021-04-18", nights: 4, guests: 4, adults: 2, children: 2, infants: 0, status: "accepted", currency: "AUD", payout_price: 0.42e4, security_price: 0.5e3, total_price: 0.47e4, guests_id: nil, created_at: "2023-02-26 13:06:21.324572000 +0000", updated_at: "2023-02-26 13:06:21.324572000 +0000">):
+  
+app/services/reservation_manager.rb:57:in `save_reservation'
+app/services/reservation_manager.rb:41:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:07:49 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.4ms | Allocations: 11947)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `guest_id`):
+  
+app/services/reservation_manager.rb:57:in `save_reservation'
+app/services/reservation_manager.rb:41:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:08:34 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.6ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.3ms | Allocations: 10005)
+
+
+  
+NoMethodError (undefined method `assign_attributes' for nil:NilClass):
+  
+app/services/reservation_manager.rb:57:in `save_reservation'
+app/services/reservation_manager.rb:41:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:10:30 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.3ms | Allocations: 10022)
+
+
+  
+NoMethodError (undefined method `guest_id=' for #<Reservation id: 1, code: "YYY12345678", start_date: "2021-04-14", end_date: "2021-04-18", nights: 4, guests: 4, adults: 2, children: 2, infants: 0, status: "accepted", currency: "AUD", payout_price: 0.42e4, security_price: 0.5e3, total_price: 0.47e4, guests_id: nil, created_at: "2023-02-26 13:06:21.324572000 +0000", updated_at: "2023-02-26 13:06:21.324572000 +0000">):
+  
+app/services/reservation_manager.rb:57:in `save_reservation'
+app/services/reservation_manager.rb:41:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "reservations"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "guests"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "guests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" varchar, "email" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar NOT NULL, "start_date" date, "end_date" date, "nights" integer, "guests" integer, "adults" integer, "children" integer, "infants" integer, "status" varchar, "currency" varchar, "payout_price" decimal(10,2), "security_price" decimal(10,2), "total_price" decimal(10,2), "guests_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_guests_id" ON "reservations" ("guests_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "reservations"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "guests"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "guests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" varchar, "email" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar NOT NULL, "start_date" date, "end_date" date, "nights" integer, "guests" integer, "adults" integer, "children" integer, "infants" integer, "status" varchar, "currency" varchar, "payout_price" decimal(10,2), "security_price" decimal(10,2), "total_price" decimal(10,2), "guest_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_guest_id" ON "reservations" ("guest_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/reserve" for ::1 at 2023-02-27 00:14:06 +1100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mGuest Create (0.3ms)[0m  [1m[32mINSERT INTO "guests" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", nil], ["last_name", nil], ["phone", nil], ["email", "wayne_woodbridge@bnb.com"], ["created_at", "2023-02-26 13:14:06.584795"], ["updated_at", "2023-02-26 13:14:06.584795"]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Create (0.4ms)[0m  [1m[32mINSERT INTO "reservations" ("code", "start_date", "end_date", "nights", "guests", "adults", "children", "infants", "status", "currency", "payout_price", "security_price", "total_price", "guest_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "YYY12345678"], ["start_date", "2021-04-14"], ["end_date", "2021-04-18"], ["nights", 4], ["guests", 4], ["adults", 2], ["children", 2], ["infants", 0], ["status", "accepted"], ["currency", "AUD"], ["payout_price", 4200.0], ["security_price", 500.0], ["total_price", 4700.0], ["guest_id", 1], ["created_at", "2023-02-26 13:14:06.587455"], ["updated_at", "2023-02-26 13:14:06.587455"]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.9ms | Allocations: 15113)
+
+
+  
+NoMethodError (undefined method `response' for #<ReservationManager:0x0000000105e18380 @error={}, @params=#<ActionController::Parameters {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>#<ActionController::Parameters {"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"} permitted: false>, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "controller"=>"reservations", "action"=>"create_or_update", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}} permitted: false>>):
+  
+app/controllers/reservations_controller.rb:11:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 00:15:40 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 10235)
+
+
+  [1m[36mReservation Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reservations"[0m
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" ORDER BY "reservations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/reserve" for ::1 at 2023-02-27 00:16:18 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"rejected", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"rejected", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Update (0.3ms)[0m  [1m[33mUPDATE "reservations" SET "status" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["status", "rejected"], ["updated_at", "2023-02-26 13:16:18.228599"], ["id", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 4961)
+
+
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" ORDER BY "reservations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGuest Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "guests"[0m
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" ORDER BY "guests"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/reserve" for ::1 at 2023-02-27 00:22:03 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"rejected", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"rejected", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mGuest Update (0.3ms)[0m  [1m[33mUPDATE "guests" SET "first_name" = ?, "last_name" = ?, "phone" = ?, "updated_at" = ? WHERE "guests"."id" = ?[0m  [["first_name", "Wayne"], ["last_name", "Woodbridge"], ["phone", "639123456789"], ["updated_at", "2023-02-26 13:22:03.523182"], ["id", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 15731)
+
+
+  [1m[36mGuest Load (0.3ms)[0m  [1m[34mSELECT "guests".* FROM "guests" ORDER BY "guests"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReservation Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reservations"[0m
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" ORDER BY "reservations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/reserve" for ::1 at 2023-02-27 00:22:34 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Update (0.3ms)[0m  [1m[33mUPDATE "reservations" SET "status" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["status", "accepted"], ["updated_at", "2023-02-26 13:22:34.338100"], ["id", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 5329)
+
+
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" ORDER BY "reservations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/reserve" for ::1 at 2023-02-27 00:24:33 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"YYY12345678", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "YYY12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 10802)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:27:22 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+Completed 422 Unprocessable Entity in 13ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 17418)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:27:36 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"asdfasdfasdfasdf", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Create (0.3ms)[0m  [1m[32mINSERT INTO "reservations" ("code", "start_date", "end_date", "nights", "guests", "adults", "children", "infants", "status", "currency", "payout_price", "security_price", "total_price", "guest_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "asdfasdfasdfasdf"], ["start_date", "2021-04-14"], ["end_date", "2021-04-18"], ["nights", 4], ["guests", 4], ["adults", 2], ["children", 2], ["infants", 0], ["status", "accepted"], ["currency", "AUD"], ["payout_price", 4200.0], ["security_price", 500.0], ["total_price", 4700.0], ["guest_id", 1], ["created_at", "2023-02-26 13:27:36.536586"], ["updated_at", "2023-02-26 13:27:36.536586"]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.3ms | Allocations: 8716)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:28:20 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"asdfasdfasdfasdf", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) AND "reservations"."id" != ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 13011)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:28:21 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"asdfasdfasdfasdf", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) AND "reservations"."id" != ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 5612)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:28:22 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"asdfasdfasdfasdf", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) AND "reservations"."id" != ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 5608)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:28:25 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"asdfasdfasdfasdf", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) AND "reservations"."id" != ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 5609)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:28:32 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 10165)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:29:01 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.3ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ (pry):15:in `save_reservation'
+Completed 422 Unprocessable Entity in 42120ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 94233)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 00:30:15 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ (pry):26:in `save_reservation'
+Completed 422 Unprocessable Entity in 141185ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 241879)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:45:09 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+Completed 422 Unprocessable Entity in 3674ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 25355)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:45:56 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+Completed 422 Unprocessable Entity in 332457ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 532393)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:51:33 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:59:in `save_reservation'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.7ms | Allocations: 17639)
+
+
+  
+NameError (undefined local variable or method `errors' for #<ReservationManager:0x0000000108db2938 @error={}, @params=#<ActionController::Parameters {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>#<ActionController::Parameters {"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"} permitted: false>, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "controller"=>"reservations", "action"=>"create_or_update", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}} permitted: false>>):
+  
+app/services/reservation_manager.rb:60:in `save_reservation'
+app/services/reservation_manager.rb:41:in `do_call'
+app/services/reservation_manager.rb:20:in `call'
+app/controllers/reservations_controller.rb:10:in `create_or_update'
+Started POST "/reserve" for ::1 at 2023-02-27 17:53:50 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+Completed 422 Unprocessable Entity in 14ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 17154)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:54:44 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+Completed 422 Unprocessable Entity in 13ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 17108)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:55:07 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE LOWER("reservations"."code") = LOWER(?) LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+Completed 422 Unprocessable Entity in 14ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 17188)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:56:14 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mGuest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+Completed 422 Unprocessable Entity in 14ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 18008)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:56:25 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>""}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mGuest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mGuest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+Completed 422 Unprocessable Entity in 8ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 10634)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:57:38 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>""}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.6ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mGuest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mGuest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+Completed 422 Unprocessable Entity in 16ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 18181)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:58:02 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation_code"=>"asdfasdfasdfasdf", "start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "guest"=>{"first_name"=>"Wayne", "last_name"=>"Woodbridge", "phone"=>"639123456789", "email"=>"wayne_woodbridge@bnb.com"}, "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00", "reservation"=>{"start_date"=>"2021-04-14", "end_date"=>"2021-04-18", "nights"=>4, "guests"=>4, "adults"=>2, "children"=>2, "infants"=>0, "status"=>"accepted", "currency"=>"AUD", "payout_price"=>"4200.00", "security_price"=>"500", "total_price"=>"4700.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mGuest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "asdfasdfasdfasdf"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+  [1m[36mCACHE Guest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:69:in `save_reservation'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 15441)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:58:39 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation"=>{"code"=>"XXX12345678", "start_date"=>"2021-03-12", "end_date"=>"2021-03-16", "expected_payout_amount"=>"3800.00", "guest_details"=>{"localized_description"=>"4 guests", "number_of_adults"=>2, "number_of_children"=>2, "number_of_infants"=>0}, "guest_email"=>"wayne_woodbridge@bnb.com", "guest_first_name"=>"Wayne", "guest_last_name"=>"Woodbridge", "guest_phone_numbers"=>["639123456789", "639123456789"], "listing_security_price_accurate"=>"500.00", "host_currency"=>"AUD", "nights"=>4, "number_of_guests"=>4, "status_type"=>"accepted", "total_paid_amount_accurate"=>"4300.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "XXX12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "XXX12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "XXX12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Create (1.3ms)[0m  [1m[32mINSERT INTO "reservations" ("code", "start_date", "end_date", "nights", "guests", "adults", "children", "infants", "status", "currency", "payout_price", "security_price", "total_price", "guest_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "XXX12345678"], ["start_date", "2021-03-12"], ["end_date", "2021-03-16"], ["nights", 4], ["guests", 4], ["adults", 2], ["children", 2], ["infants", 0], ["status", "accepted"], ["currency", "AUD"], ["payout_price", 3800.0], ["security_price", 500.0], ["total_price", 4300.0], ["guest_id", 1], ["created_at", "2023-02-27 06:58:39.948147"], ["updated_at", "2023-02-27 06:58:39.948147"]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mGuest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+  [1m[36mCACHE Guest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:69:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:69:in `save_reservation'
+  [1m[36mGuest Update (0.3ms)[0m  [1m[33mUPDATE "guests" SET "phone" = ?, "updated_at" = ? WHERE "guests"."id" = ?[0m  [["phone", "639123456789, 639123456789"], ["updated_at", "2023-02-27 06:58:39.953619"], ["id", 1]]
+  ↳ app/services/reservation_manager.rb:69:in `save_reservation'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:69:in `save_reservation'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 4.0ms | Allocations: 15861)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:58:46 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation"=>{"code"=>"XXX12345678", "start_date"=>"2021-03-12", "end_date"=>"2021-03-16", "expected_payout_amount"=>"3800.00", "guest_details"=>{"localized_description"=>"4 guests", "number_of_adults"=>2, "number_of_children"=>2, "number_of_infants"=>0}, "guest_email"=>"", "guest_first_name"=>"Wayne", "guest_last_name"=>"Woodbridge", "guest_phone_numbers"=>["639123456789", "639123456789"], "listing_security_price_accurate"=>"500.00", "host_currency"=>"AUD", "nights"=>4, "number_of_guests"=>4, "status_type"=>"accepted", "total_paid_amount_accurate"=>"4300.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "XXX12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mGuest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mGuest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 9133)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:59:01 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation"=>{"code"=>"XXX12345678", "start_date"=>"2021-03-12", "end_date"=>"2021-03-16", "expected_payout_amount"=>"3800.00", "guest_details"=>{"localized_description"=>"4 guests", "number_of_adults"=>2, "number_of_children"=>2, "number_of_infants"=>0}, "guest_email"=>"wayne_woodbridge@bnb.com", "guest_first_name"=>"Wayne", "guest_last_name"=>"Woodbridge", "guest_phone_numbers"=>["639123456789", "639123456789"], "listing_security_price_accurate"=>"500.00", "host_currency"=>"AUD", "nights"=>4, "number_of_guests"=>4, "status_type"=>"accepted", "total_paid_amount_accurate"=>"4300.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "XXX12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mGuest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+  [1m[36mCACHE Guest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:69:in `save_reservation'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 9033)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:59:06 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation"=>{"code"=>"XXX12345678", "start_date"=>"2021-03-12", "end_date"=>"2021-03-16", "expected_payout_amount"=>"3800.00", "guest_details"=>{"localized_description"=>"4 guests", "number_of_adults"=>2, "number_of_children"=>2, "number_of_infants"=>0}, "guest_email"=>"wayne_woodbridge@bnb.com", "guest_first_name"=>"Wayne", "guest_last_name"=>"Woodbridge", "guest_phone_numbers"=>["639123456789", "639123456789"], "listing_security_price_accurate"=>"5000.00", "host_currency"=>"AUD", "nights"=>4, "number_of_guests"=>4, "status_type"=>"accepted", "total_paid_amount_accurate"=>"4300.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "XXX12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Update (0.3ms)[0m  [1m[33mUPDATE "reservations" SET "security_price" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["security_price", 5000.0], ["updated_at", "2023-02-27 06:59:06.032735"], ["id", 3]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mGuest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mReservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+  [1m[36mCACHE Guest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:69:in `save_reservation'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 9845)
+
+
+Started POST "/reserve" for ::1 at 2023-02-27 17:59:26 +1100
+Processing by ReservationsController#create_or_update as */*
+  Parameters: {"reservation"=>{"code"=>"XXX12345678", "start_date"=>"2021-03-12", "end_date"=>"2021-03-16", "expected_payout_amount"=>"3800.00", "guest_details"=>{"localized_description"=>"4 guests", "number_of_adults"=>2, "number_of_children"=>2, "number_of_infants"=>0}, "guest_email"=>"wayne_woodbridge@bnb.com", "guest_first_name"=>"Wayne", "guest_last_name"=>"Woodbridge", "guest_phone_numbers"=>["639123456789", "639123456789"], "listing_security_price_accurate"=>"5000.00", "host_currency"=>"AUD", "nights"=>4, "number_of_guests"=>4, "status_type"=>"accepted", "total_paid_amount_accurate"=>"4300.00"}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."code" = ? LIMIT ?[0m  [["code", "XXX12345678"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:51:in `save_reservation'
+  [1m[36mGuest Load (0.0ms)[0m  [1m[34mSELECT "guests".* FROM "guests" WHERE "guests"."email" = ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:54:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mReservation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/services/reservation_manager.rb:57:in `save_reservation'
+  [1m[36mGuest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:61:in `save_reservation'
+  [1m[36mCACHE Reservation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."code" = ? AND "reservations"."id" != ? LIMIT ?[0m  [["code", "XXX12345678"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:62:in `save_reservation'
+  [1m[36mCACHE Guest Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "guests" WHERE "guests"."email" = ? AND "guests"."id" != ? LIMIT ?[0m  [["email", "wayne_woodbridge@bnb.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/services/reservation_manager.rb:69:in `save_reservation'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 9036)
+
+
+  [1m[36mGuest Load (0.3ms)[0m  [1m[34mSELECT "guests".* FROM "guests" ORDER BY "guests"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT "guests".* FROM "guests" ORDER BY "guests"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" ORDER BY "reservations"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "guests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" varchar, "email" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar NOT NULL, "start_date" date, "end_date" date, "nights" integer, "guests" integer, "adults" integer, "children" integer, "infants" integer, "status" varchar, "currency" varchar, "payout_price" decimal(10,2), "security_price" decimal(10,2), "total_price" decimal(10,2), "guest_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_guest_id" ON "reservations" ("guest_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-06-25 01:30:25.123427"], ["updated_at", "2023-06-25 01:30:25.123427"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGuests (20230225220805)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "guests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" varchar, "email" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225220805"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20230225221021)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar NOT NULL, "start_date" date, "end_date" date, "nights" integer, "guests" integer, "adults" integer, "children" integer, "infants" integer, "status" varchar, "currency" varchar, "payout_price" decimal(10,2), "security_price" decimal(10,2), "total_price" decimal(10,2), "guest_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_guest_id" ON "reservations" ("guest_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225221021"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-06-25 01:52:25.407981"], ["updated_at", "2023-06-25 01:52:25.407981"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

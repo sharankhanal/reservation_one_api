@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://example.com/schemas/partner_two",
+  "title": "Partner Two Reservation",
+  "type": "object",
+  "properties": {
+    "reservation": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "end_date": {
+          "type": "string"
+        },
+        "expected_payout_amount": {
+          "type": "string"
+        },
+        "guest_details": {
+          "type": "object",
+          "properties": {
+            "localized_description": {
+              "type": "string"
+            },
+            "number_of_adults": {
+              "type": "integer"
+            },
+            "number_of_children": {
+              "type": "integer"
+            },
+            "number_of_infants": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "localized_description",
+            "number_of_adults",
+            "number_of_children",
+            "number_of_infants"
+          ]
+        },
+        "guest_email": {
+          "type": "string"
+        },
+        "guest_first_name": {
+          "type": "string"
+        },
+        "guest_last_name": {
+          "type": "string"
+        },
+        "guest_phone_numbers": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "listing_security_price_accurate": {
+          "type": "string"
+        },
+        "host_currency": {
+          "type": "string"
+        },
+        "nights": {
+          "type": "integer"
+        },
+        "number_of_guests": {
+          "type": "integer"
+        },
+        "status_type": {
+          "type": "string"
+        },
+        "total_paid_amount_accurate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "start_date",
+        "end_date",
+        "expected_payout_amount",
+        "guest_details",
+        "guest_email",
+        "guest_first_name",
+        "guest_last_name",
+        "guest_phone_numbers",
+        "listing_security_price_accurate",
+        "host_currency",
+        "nights",
+        "number_of_guests",
+        "status_type",
+        "total_paid_amount_accurate"
+      ]
+    }
+  },
+  "required": [
+    "reservation"
+  ]
+}
